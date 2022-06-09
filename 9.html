@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        body {
+            height: 100%;
+            font-family: Source Han Sans CN, PingFang SC;
+        }
+
+        html,
+        body {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        #app {
+            height: 100%;
+        }
+
+        .app-wrapper {
+            position: relative;
+            height: 100%;
+            width: 100%;
+        }
+
+        #app .sidebar-container {
+            -webkit-transition: width 0.28s;
+            transition: width 0.28s;
+            width: 210px !important;
+            max-width: 210px !important;
+            background-color: #304156;
+            height: 100%;
+            position: fixed;
+            font-size: 0px;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1001;
+            overflow: hidden;
+        }
+
+        #app .main-container {
+            min-height: 100%;
+            -webkit-transition: margin-left .28s;
+            transition: margin-left .28s;
+            margin-left: 210px;
+            position: relative;
+            background: #f0f2f5;
+            padding: 0px 8px 8px;
+            box-sizing: border-box;
+        }
+
+        .top-container {
+            margin-left: -8px;
+            margin-right: -8px;
+        }
+
+        .navbar {
+            height: 50px;
+            overflow: hidden;
+            position: relative;
+            background: #fff;
+            box-shadow: 0 1px 4px rgb(0 21 41 / 8%);
+        }
+
+        .tags-view-container {
+            height: 34px;
+            width: 100%;
+            background: #fff;
+            border-bottom: 1px solid #d8dce5;
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 12%), 0 0 3px 0 rgb(0 0 0 / 4%);
+        }
+
+        .hasTagsView .app-main {
+            min-height: calc(100vh - 84px - 8px);
+        }
+
+        .app-main{
+            min-height: calc(100vh - 50px);
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            background: #fff;
+            border-radius: 10px;
+            padding: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="app-wrapper openSidebar">
+            <div class="sidebar-container has-logo">
+                <div class="right-menu">
+                    <div class="el-select school-box el-select--mini">
+                    </div>
+                </div>
+            </div>
+            <div class="main-container hasTagsView">
+                <div class="top-container">
+                    <div class="navbar">
+                        <div class="right-menu">
+
+                        </div>
+                    </div>
+                    <div data-v-fac8ca64="" id="tags-view-container" class="tags-view-container">
+                        <div data-v-be6b7bae="" data-v-fac8ca64=""
+                            class="scroll-container tags-view-wrapper el-scrollbar">
+                            <div class="el-scrollbar__wrap" style="margin-bottom: -8px; margin-right: -8px">
+                                <div class="el-scrollbar__view">
+                                    <span data-v-fac8ca64=""
+                                        class="tags-view-item router-link-exact-active router-link-active">
+                                        工作台 </span><span data-v-fac8ca64="" class="tags-view-item">
+                                        新手指南
+                                        <!---->
+                                    </span><span data-v-fac8ca64=""
+                                        class="tags-view-item router-link-exact-active router-link-active active">
+                                        首页
+                                        <!---->
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="el-scrollbar__bar is-horizontal">
+                                <div class="el-scrollbar__thumb" style="transform: translateX(0%)"></div>
+                            </div>
+                            <div class="el-scrollbar__bar is-vertical">
+                                <div class="el-scrollbar__thumb" style="height: 96.7742%; transform: translateY(0%)">
+                                </div>
+                            </div>
+                        </div>
+                        <ul data-v-fac8ca64="" class="contextmenu" style="left: 0px; top: 0px; display: none">
+                            <li data-v-fac8ca64="">关闭其他</li>
+                            <li data-v-fac8ca64="">关闭全部</li>
+                        </ul>
+                    </div>
+                </div>
+                <section class="app-main">
+
+                </section>
+            </div>
+        </div>
+</body>
+
+</html>
