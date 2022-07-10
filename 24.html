@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <title>无标题文档</title>
+    <style>
+      #box {
+        position: relative;
+        width: 500px;
+        height: 60px;
+        padding: 0;
+        margin: 0;
+        z-index: 0;
+      }
+      #layer1 {
+        position: absolute;
+        top: 20px;
+        left: 0;
+        width: 500px;
+        height: 40px;
+        border: 1px solid #999;
+        padding: 10px 5px 5px 5px;
+        z-index: 1;
+      }
+      #layer2 {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: auto;
+        height: 20px;
+        background: #fff;
+        padding: 0 1px;
+        z-index: 2;
+      }
+    </style>
+  </head>
+
+  <body>
+    <fieldset>
+      <legend>控制面板</legend>
+      这里是内容
+    </fieldset>
+    <p></p>
+    <div id="box">
+      <div id="layer1">这里是内容</div>
+      <div id="layer2">控制面板</div>
+    </div>
+  </body>
+</html>

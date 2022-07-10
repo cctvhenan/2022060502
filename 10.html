@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        body {
+            height: 100%;
+            font-family: Source Han Sans CN, PingFang SC;
+        }
+
+        html,
+        body {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        #app {
+            height: 100%;
+        }
+
+        .app-wrapper {
+            position: relative;
+            height: 100%;
+            width: 100%;
+        }
+
+        #app .sidebar-container {
+            -webkit-transition: width 0.28s;
+            transition: width 0.28s;
+            width: 210px !important;
+            max-width: 210px !important;
+            background-color: #304156;
+            height: 100%;
+            position: fixed;
+            font-size: 0px;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1001;
+            overflow: hidden;
+        }
+
+        #app .main-container {
+            min-height: 100%;
+            -webkit-transition: margin-left .28s;
+            transition: margin-left .28s;
+            margin-left: 210px;
+            position: relative;
+            background: #f0f2f5;
+            box-sizing: border-box;
+        }
+
+        .top-container {
+            /* margin-left: -8px;
+            margin-right: -8px; */
+        }
+
+        .navbar {
+            height: 50px;
+            overflow: hidden;
+            position: relative;
+            background: #fff;
+            box-shadow: 0 1px 4px rgb(0 21 41 / 8%);
+        }
+
+        .tags-view-container {
+            height: 34px;
+            width: 100%;
+            background: #fff;
+            border-bottom: 1px solid #d8dce5;
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 12%), 0 0 3px 0 rgb(0 0 0 / 4%);
+        }
+
+        .hasTagsView .app-main {
+            min-height: calc(100vh - 84px);
+        }
+
+        .app-main {
+            min-height: calc(100vh - 50px);
+            /* width: 100%; */
+            /* padding: 8px 8px; */
+            position: relative;
+        }
+
+        .app-main .app-main-Wapper {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            bottom: 8px;
+            right: 8px;
+            /* height: 100%; */
+            /* width: 100%; */
+            border-radius: 10px;
+            padding: 24px;
+            background: lightgreen;
+        }
+
+        .SY {
+            margin: -24px;
+            background-color: #f0f2f5;
+            height: calc(100% + 48px);
+        }
+
+        .el-card__body {
+            width: 459px;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fast-boxweather {
+            background: -webkit-gradient(linear, left bottom, left top, from(rgba(67, 172, 245, 0.48)), to(#0075f3));
+            background: linear-gradient(360deg, rgba(67, 172, 245, 0.48) 0%, #0075f3 100%);
+            border-radius: 8px;
+            height: 132px;
+        }
+
+        .fast-box {
+            margin-top: 20px;
+        }
+
+        .tzgongneng {
+            position: relative;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            width: 70%;
+            padding: 0 0 0 20px;
+            height: 20px;
+            font-size: 20px;
+            font-family: PingFangSC-Medium, PingFang SC;
+            font-weight: 500;
+            color: #333333;
+            line-height: 20px;
+        }
+
+        .record-box {
+            margin-top: 20px;
+        }
+
+        .item-box {
+            padding-top: 10px;
+            margin-top: 10px;
+            background-color: #ffffff;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: start;
+            -ms-flex-pack: start;
+            justify-content: flex-start;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            padding: 0px 0px 20px 0px;
+            max-height: 240px;
+            overflow-y: scroll;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        }
+
+        .tzzjshiyong {
+            position: relative;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            width: 70%;
+            padding: 0 0 0 20px;
+            height: 20px;
+            font-size: 20px;
+            font-family: PingFangSC-Medium, PingFang SC;
+            font-weight: 500;
+            color: #333333;
+            line-height: 20px;
+        }
+
+        .item-box .itemWrapper {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            text-align: center;
+            width: 80px;
+            height: 100px;
+        }
+        .item-boxtwo {
+            max-height: calc(100vh - 104px - 132px - 100px - 150px);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="app-wrapper openSidebar">
+            <div class="sidebar-container has-logo">
+                <div class="right-menu">
+                    <div class="el-select school-box el-select--mini">
+                    </div>
+                </div>
+            </div>
+            <div class="main-container hasTagsView">
+                <div class="top-container">
+                    <div class="navbar">
+                        <div class="right-menu">
+
+                        </div>
+                    </div>
+                    <div data-v-fac8ca64="" id="tags-view-container" class="tags-view-container">
+                        <div data-v-be6b7bae="" data-v-fac8ca64=""
+                            class="scroll-container tags-view-wrapper el-scrollbar">
+                            <div class="el-scrollbar__wrap" style="margin-bottom: -8px; margin-right: -8px">
+                                <div class="el-scrollbar__view">
+                                    <span data-v-fac8ca64=""
+                                        class="tags-view-item router-link-exact-active router-link-active">
+                                        工作台 </span><span data-v-fac8ca64="" class="tags-view-item">
+                                        新手指南
+                                        <!---->
+                                    </span><span data-v-fac8ca64=""
+                                        class="tags-view-item router-link-exact-active router-link-active active">
+                                        首页
+                                        <!---->
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="el-scrollbar__bar is-horizontal">
+                                <div class="el-scrollbar__thumb" style="transform: translateX(0%)"></div>
+                            </div>
+                            <div class="el-scrollbar__bar is-vertical">
+                                <div class="el-scrollbar__thumb" style="height: 96.7742%; transform: translateY(0%)">
+                                </div>
+                            </div>
+                        </div>
+                        <ul data-v-fac8ca64="" class="contextmenu" style="left: 0px; top: 0px; display: none">
+                            <li data-v-fac8ca64="">关闭其他</li>
+                            <li data-v-fac8ca64="">关闭全部</li>
+                        </ul>
+                    </div>
+                </div>
+                <section class="app-main">
+                    <div class="app-main-Wapper">
+                        <div class="group-wrap-main SY">
+                            <div class="el-card__body">
+                                <div data-v-39f87be5="">
+                                    <div data-v-39f87be5="" class="fast-boxweather">
+                                        <div data-v-39f87be5="" class="box2 flex-col">
+                                            <div data-v-39f87be5="" class="wrap6 flex-row">
+                                                <div data-v-39f87be5="" class="wrap6right flex-row">
+                                                    <div data-v-39f87be5="" class="outer5 flex-col"></div><span
+                                                        data-v-39f87be5="" class="word12"> 郑明星，下午好～ </span>
+                                                </div>
+                                                <div data-v-39f87be5="" class="outer6 flex-col">郑州市</div>
+                                            </div>
+                                            <div data-v-39f87be5="" class="wrap7 flex-row">
+                                                <div data-v-39f87be5="" class="layer6 flex-col"></div><span
+                                                    data-v-39f87be5="" class="word14"> 2022年6月20日 星期一 </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div data-v-39f87be5="" class="fast-box">
+                                        <div data-v-39f87be5="" class="tzgongneng">快捷栏位</div>
+                                        <div data-v-39f87be5="" class="item-box">
+                                            <div data-v-39f87be5="" class="itemWrapper">
+                                                <div data-v-39f87be5="" class="el-card item is-always-shadow">
+                                                    <!---->
+                                                    <div class="el-card__body"><i data-v-39f87be5=""
+                                                            class="delBtn el-icon el-icon-close"></i>
+                                                        <div data-v-39f87be5="" class="itemIcon"><img data-v-39f87be5=""
+                                                                src="https://wxgyey.oss-cn-beijing.aliyuncs.com/img/6651a81b6f33401a870d83671bdafe28.webp?Expires=4770582808&amp;OSSAccessKeyId=LTAI4FhuehF1W2NHe8jxLZWo&amp;Signature=AYP7w7GNhWYlYV3yPwcpBAZcJSk%3D">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div data-v-39f87be5="" class="itemName"> 膳食调查 </div>
+                                            </div>
+                                            <div data-v-39f87be5="" class="itemWrapper">
+                                                <div data-v-39f87be5="" class="el-card item is-always-shadow">
+                                                    <!---->
+                                                    <div class="el-card__body"><i data-v-39f87be5=""
+                                                            class="delBtn el-icon el-icon-close"></i>
+                                                        <div data-v-39f87be5="" class="itemIcon"><img data-v-39f87be5=""
+                                                                src="https://wxgyey.oss-cn-beijing.aliyuncs.com/img/3da61e51f9394936a7f8bbe11f3492c9.png?Expires=4767333915&amp;OSSAccessKeyId=LTAI4FhuehF1W2NHe8jxLZWo&amp;Signature=ZOzOZVQjDxJJ2k4%2FmCDZMUOwn%2B4%3D">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div data-v-39f87be5="" class="itemName"> 作息制定 </div>
+                                            </div>
+                                            <div data-v-39f87be5="" class="itemWrapper">
+                                                <div data-v-39f87be5="" class="el-card item is-always-shadow">
+                                                    <!---->
+                                                    <div class="el-card__body"><i data-v-39f87be5=""
+                                                            class="delBtn el-icon el-icon-close"></i>
+                                                        <div data-v-39f87be5="" class="itemIcon"><img data-v-39f87be5=""
+                                                                src="https://wxgyey.oss-cn-beijing.aliyuncs.com/img/b605a0bc05f548eb90f130f69c59e49f.png?Expires=4763416615&amp;OSSAccessKeyId=LTAI4FhuehF1W2NHe8jxLZWo&amp;Signature=GPk0%2F%2Fxjk6v9FolC5e%2FDCuk5ZBw%3D">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div data-v-39f87be5="" class="itemName"> 审批记录 </div>
+                                            </div>
+                                            <div data-v-39f87be5="" class="itemWrapper">
+                                                <div data-v-39f87be5="" class="el-card item is-always-shadow">
+                                                    <!---->
+                                                    <div class="el-card__body"><i data-v-39f87be5=""
+                                                            class="delBtn el-icon el-icon-close"></i>
+                                                        <div data-v-39f87be5="" class="itemIcon"><img data-v-39f87be5=""
+                                                                src="https://wxgyey.oss-cn-beijing.aliyuncs.com/img/60e65a25626e44ecb872fd86321fabba.png?Expires=4763415119&amp;OSSAccessKeyId=LTAI4FhuehF1W2NHe8jxLZWo&amp;Signature=eVLMZkKX8FtrCZFit9ry5BFOye8%3D">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div data-v-39f87be5="" class="itemName"> 表单管理 </div>
+                                            </div>
+                                            <div data-v-39f87be5="" class="itemWrapper">
+                                                <div data-v-39f87be5="" class="el-card item is-always-shadow">
+                                                    <!---->
+                                                    <div class="el-card__body"><i data-v-39f87be5=""
+                                                            class="delBtn el-icon el-icon-close"></i>
+                                                        <div data-v-39f87be5="" class="itemIcon"><img data-v-39f87be5=""
+                                                                src="https://wxgyey.oss-cn-beijing.aliyuncs.com/img/16652cf2d2474c2bac85cf498808a376.png?Expires=4776137783&amp;OSSAccessKeyId=LTAI4FhuehF1W2NHe8jxLZWo&amp;Signature=nOHpT%2B6Rdhg09V%2F%2BwbsNsm%2F5lkw%3D">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div data-v-39f87be5="" class="itemName"> 访客管理 </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div data-v-39f87be5="" class="record-box">
+                                        <div data-v-39f87be5="" class="tzzjshiyong">最近使用</div>
+                                        <div data-v-39f87be5="" class="item-boxtwo">
+                                            <div data-v-39f87be5="" class="itemWrapper">
+                                                <div data-v-39f87be5="" class="el-card item is-no-shadow">
+                                                    <!---->
+                                                    <div class="el-card__body">
+                                                        <div data-v-39f87be5="" class="itemIcon"><img data-v-39f87be5=""
+                                                                src="https://wxgyey.oss-cn-beijing.aliyuncs.com/img/fd6436faedf945759d63ebc3459b540e.jpg?Expires=4788247738&amp;OSSAccessKeyId=LTAI4FhuehF1W2NHe8jxLZWo&amp;Signature=4JHj2aYmSwBJkKPjaAaRbyNlgcw%3D">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div data-v-39f87be5="" class="itemName"> 膳食计划 </div>
+                                            </div>
+                                            <div data-v-39f87be5="" class="itemWrapper">
+                                                <div data-v-39f87be5="" class="el-card item is-no-shadow">
+                                                    <!---->
+                                                    <div class="el-card__body">
+                                                        <div data-v-39f87be5="" class="itemIcon"><img data-v-39f87be5=""
+                                                                src="WSBJ-YYPC-ZZSP-RQXZ"></div>
+                                                    </div>
+                                                </div>
+                                                <div data-v-39f87be5="" class="itemName"> 日期选择 </div>
+                                            </div>
+                                            <div data-v-39f87be5="" class="itemWrapper">
+                                                <div data-v-39f87be5="" class="el-card item is-no-shadow">
+                                                    <!---->
+                                                    <div class="el-card__body">
+                                                        <div data-v-39f87be5="" class="itemIcon"><img data-v-39f87be5=""
+                                                                src="https://wxgyey.oss-cn-beijing.aliyuncs.com/img/2dd5a94f76e44d529dce8f28b5916c93.png?Expires=4750217101&amp;OSSAccessKeyId=LTAI4FhuehF1W2NHe8jxLZWo&amp;Signature=cy%2BrocHqn%2BeFlx5pOEeET2RrVBk%3D">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div data-v-39f87be5="" class="itemName"> 制作食谱 </div>
+                                            </div>
+                                            <div data-v-39f87be5="" class="itemWrapper">
+                                                <div data-v-39f87be5="" class="el-card item is-no-shadow">
+                                                    <!---->
+                                                    <div class="el-card__body">
+                                                        <div data-v-39f87be5="" class="itemIcon"><img data-v-39f87be5=""
+                                                                src="https://wxgyey.oss-cn-beijing.aliyuncs.com/img/3bbc3962ff47495fa3f46cbff13d8fa9.png?Expires=4750388963&amp;OSSAccessKeyId=LTAI4FhuehF1W2NHe8jxLZWo&amp;Signature=GVreapKW6Z36K%2F2fXie5Tr5eIoU%3D">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div data-v-39f87be5="" class="itemName"> 类别管理 </div>
+                                            </div>
+                                            <div data-v-39f87be5="" class="itemWrapper">
+                                                <div data-v-39f87be5="" class="el-card item is-no-shadow">
+                                                    <!---->
+                                                    <div class="el-card__body">
+                                                        <div data-v-39f87be5="" class="itemIcon"><img data-v-39f87be5=""
+                                                                src="https://wxgyey.oss-cn-beijing.aliyuncs.com/img/ab4d41cff5a64ec9ac5bda09b7abd2b0.png?Expires=4750388282&amp;OSSAccessKeyId=LTAI4FhuehF1W2NHe8jxLZWo&amp;Signature=M%2B91BqnKUc8kfOewSz9IKYggnc8%3D">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div data-v-39f87be5="" class="itemName"> 上传制度 </div>
+                                            </div>
+                                            <div data-v-39f87be5="" class="itemWrapper">
+                                                <div data-v-39f87be5="" class="el-card item is-no-shadow">
+                                                    <!---->
+                                                    <div class="el-card__body">
+                                                        <div data-v-39f87be5="" class="itemIcon"><img data-v-39f87be5=""
+                                                                src="https://wxgyey.oss-cn-beijing.aliyuncs.com/img/e82b7a332900438c8bf29609b3742750.png?Expires=4769373703&amp;OSSAccessKeyId=LTAI4FhuehF1W2NHe8jxLZWo&amp;Signature=%2FhKteo5f5qRfbZ3Dwudjmy681ew%3D">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div data-v-39f87be5="" class="itemName"> 资产统计 </div>
+                                            </div>
+                                            <div data-v-39f87be5="" class="itemWrapper">
+                                                <div data-v-39f87be5="" class="el-card item is-no-shadow">
+                                                    <!---->
+                                                    <div class="el-card__body">
+                                                        <div data-v-39f87be5="" class="itemIcon"><img data-v-39f87be5=""
+                                                                src="https://wxgyey.oss-cn-beijing.aliyuncs.com/img/a575de53f3154cd591d038c826253e3d.png?Expires=4769377429&amp;OSSAccessKeyId=LTAI4FhuehF1W2NHe8jxLZWo&amp;Signature=sfaf%2FTRy0ocw%2FB2mwyuwbix2bn4%3D">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div data-v-39f87be5="" class="itemName"> 维修管理 </div>
+                                            </div>
+                                            <div data-v-39f87be5="" class="itemWrapper">
+                                                <div data-v-39f87be5="" class="el-card item is-no-shadow">
+                                                    <!---->
+                                                    <div class="el-card__body">
+                                                        <div data-v-39f87be5="" class="itemIcon"><img data-v-39f87be5=""
+                                                                src="https://wxgyey.oss-cn-beijing.aliyuncs.com/img/ba998fc258f44170ae66bcba8816f33c.png?Expires=4760048671&amp;OSSAccessKeyId=LTAI4FhuehF1W2NHe8jxLZWo&amp;Signature=RBbIRVLidcAmbOKBaYZDmvYCEXs%3D">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div data-v-39f87be5="" class="itemName"> 考勤设置 </div>
+                                            </div>
+                                            <div data-v-39f87be5="" class="itemWrapper">
+                                                <div data-v-39f87be5="" class="el-card item is-no-shadow">
+                                                    <!---->
+                                                    <div class="el-card__body">
+                                                        <div data-v-39f87be5="" class="itemIcon"><img data-v-39f87be5=""
+                                                                src="https://wxgyey.oss-cn-beijing.aliyuncs.com/img/a4099079fc9d4475b3a7521bbee1a938.png?Expires=4769377390&amp;OSSAccessKeyId=LTAI4FhuehF1W2NHe8jxLZWo&amp;Signature=BgIuIBeFFvVqC9iqxhRqdbqd9nk%3D">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div data-v-39f87be5="" class="itemName"> 我的仓库 </div>
+                                            </div>
+                                            <div data-v-39f87be5="" class="itemWrapper">
+                                                <div data-v-39f87be5="" class="el-card item is-no-shadow">
+                                                    <!---->
+                                                    <div class="el-card__body">
+                                                        <div data-v-39f87be5="" class="itemIcon"><img data-v-39f87be5=""
+                                                                src="https://wxgyey.oss-cn-beijing.aliyuncs.com/img/3efaf1ef34fd47ea9e1ac6ae8f03586e.jpg?Expires=4789333024&amp;OSSAccessKeyId=LTAI4FhuehF1W2NHe8jxLZWo&amp;Signature=g6Y2KPB0aBpedQ08LwrQL2WzImA%3D">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div data-v-39f87be5="" class="itemName"> 营养计算 </div>
+                                            </div>
+                                            <div data-v-39f87be5="" class="itemWrapper">
+                                                <div data-v-39f87be5="" class="el-card item is-no-shadow">
+                                                    <!---->
+                                                    <div class="el-card__body">
+                                                        <div data-v-39f87be5="" class="itemIcon"><img data-v-39f87be5=""
+                                                                src="https://wxgyey.oss-cn-beijing.aliyuncs.com/img/692041efe19846ebbdaf514540d3cb60.png?Expires=4750215483&amp;OSSAccessKeyId=LTAI4FhuehF1W2NHe8jxLZWo&amp;Signature=5ghCcb5w0IyQieJAWprDx4c%2F%2BGA%3D">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div data-v-39f87be5="" class="itemName"> 幼儿信息 </div>
+                                            </div>
+                                            <div data-v-39f87be5="" class="itemWrapper">
+                                                <div data-v-39f87be5="" class="el-card item is-no-shadow">
+                                                    <!---->
+                                                    <div class="el-card__body">
+                                                        <div data-v-39f87be5="" class="itemIcon"><img data-v-39f87be5=""
+                                                                src="https://wxgyey.oss-cn-beijing.aliyuncs.com/img/5dbdf5b8d7c54c3fb9fd11c5988b955a.png?Expires=4750215624&amp;OSSAccessKeyId=LTAI4FhuehF1W2NHe8jxLZWo&amp;Signature=VhkfIQo6BVxslIg240Kn2Q4Dc8I%3D">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div data-v-39f87be5="" class="itemName"> 花名册 </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+</body>
+
+</html>

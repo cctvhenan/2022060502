@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        body {
+            height: 100%;
+            font-family: Source Han Sans CN, PingFang SC;
+        }
+
+        html,
+        body {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        #app {
+            height: 100%;
+        }
+
+        .container_Wapper {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: burlywood;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .container_Wapper .top {
+            flex-grow: 1;
+            flex-shrink: 1;
+            height: calc(100% * 390 / 900);
+            background-color: cadetblue;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url("./topbg.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .container_Wapper .top .info {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .container_Wapper .bottom {
+            flex-grow: 1;
+            flex-shrink: 1;
+            height: calc(100% * 510 / 900);
+            background-color: #fff;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container_Wapper .bottom .login {
+            width: 442px;
+            height: 537px;
+            background: #ffffff;
+            box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.16);
+            border-radius: 10px 10px 10px 10px;
+            opacity: 1;
+            margin-top: calc(-1 * ((100% * 145 / 900)));
+            z-index: 2;
+        }
+
+        .container_Wapper .copyInfo {
+            position: absolute;
+            bottom: calc(((100% * 32 / 900)));
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="container_Wapper">
+            <div class="top">
+                <div class="info">
+                    <div>nihao</div>
+                    <div>nihao</div>
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="login">login</div>
+            </div>
+            <div class="copyInfo">copyInfo</div>
+        </div>
+    </div>
+</body>
+
+</html>
